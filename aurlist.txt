@@ -2,3 +2,4 @@
 # Install with: paru -S --needed - < aurlist.txt
 
 wlogout
+wezterm

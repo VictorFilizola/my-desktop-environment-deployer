@@ -64,7 +64,7 @@ Mod key: `SUPER` (Windows key)
 
 | Keys                            | Action                                           |
 | ------------------------------- | ------------------------------------------------ |
-| `SUPER + Return`                | Terminal (kitty)                                 |
+| `SUPER + Return`                | Terminal (wezterm)                               |
 | `SUPER + Q`                     | Close window                                     |
 | `SUPER + E`                     | File manager (nemo)                              |
 | `SUPER + Space`                 | App launcher (rofi)                              |
@@ -114,7 +114,8 @@ Mod key: `SUPER` (Windows key)
 
 | Package | Purpose           |
 | ------- | ----------------- |
-| `kitty` | Terminal emulator |
+| `kitty`  | Terminal emulator |
+| `wezterm` | Terminal emulator |
 | `nemo`  | File manager      |
 | `rofi`  | App launcher      |
 | `brave` | Web browser       |
@@ -155,6 +156,7 @@ Non-Hyprland configs managed via GNU Stow under `stow/`:
 | `waybar`     | Status bar config + scripts (clock, cpu, media, window) |
 | `rofi`       | App launcher + squared-material-red theme               |
 | `kitty`      | Terminal emulator + VSCode_Dark theme                   |
+| `wezterm`    | Terminal emulator (GPU-accelerated) + red-accent theme  |
 | `fastfetch`  | System info (builtin distro logo, optional custom art)  |
 | `fish`       | Shell config, functions, prompt, color scheme           |
 | `swaync`     | Notification daemon + control center                    |
@@ -170,7 +172,7 @@ Non-Hyprland configs managed via GNU Stow under `stow/`:
 
 ## Customization
 
-- Terminal: edit `programs.lua` → `terminal`
+- Terminal: edit `programs.lua` → `terminal` (default: wezterm)
 - File manager: edit `programs.lua` → `fileManager`
 - Launcher: edit `programs.lua` → `menu`
 - Browser: edit `programs.lua` → `browser`

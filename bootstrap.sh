@@ -62,7 +62,7 @@ if ! command -v stow &>/dev/null; then
 fi
 
 log "Stowing configuration files..."
-STOW_PKGS=(hypr waybar rofi kitty fastfetch fish swaync swayosd slurp uwsm gtk qt xsettingsd icons nvidia wallpapers)
+STOW_PKGS=(hypr waybar rofi kitty wezterm fastfetch fish swaync swayosd slurp uwsm gtk qt xsettingsd icons nvidia wallpapers)
 for pkg in "${STOW_PKGS[@]}"; do
   if [[ -d "$pkg" ]]; then
     log "  Stowing: $pkg"
@@ -93,6 +93,7 @@ CHECK_FILES=(
   "$HOME/.config/hypr/hyprland.lua"
   "$HOME/.config/waybar/config.jsonc"
   "$HOME/.config/kitty/kitty.conf"
+  "$HOME/.config/wezterm/wezterm.lua"
   "$HOME/.config/fish/config.fish"
   "$HOME/.config/swaync/config.json"
   "$HOME/.config/rofi/config.rasi"
