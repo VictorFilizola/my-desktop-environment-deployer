@@ -10,7 +10,7 @@ cd my-hyprland-configs
 ./bootstrap.sh
 ```
 
-Installs all packages, stows configs, enables services. Reboot and Hyprland is ready.
+Installs all packages, stows configs, enables services. Reboot and Hyprland is ready :)
 
 ## OBS - Activate Websocket for Waybar recording Status
 
@@ -40,7 +40,7 @@ Verify:
 systemctl is-active swayosd-libinput-backend.service  # → active
 ```
 
-No OSD without this. Volume keys do nothing without this.
+Volume keys won't work without this
 
 ## Files
 
