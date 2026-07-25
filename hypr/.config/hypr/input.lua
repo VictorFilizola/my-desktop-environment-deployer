@@ -4,9 +4,15 @@
 
 hl.config({
 	input = {
+
+		-- brazilian-abnt2
+		-- kb_layout = "br",
+		-- kb_variant = "abnt2",
+
 		-- us-english-international
 		kb_layout = "us",
 		kb_variant = "intl",
+
 		kb_model = "",
 		kb_options = "",
 		kb_rules = "",

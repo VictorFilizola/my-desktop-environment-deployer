@@ -45,8 +45,6 @@ end)
 
 hl.bind(mainMod .. " + H", hl.dsp.exec_cmd("hyprmod"))
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.exec_cmd("XDG_CURRENT_DESKTOP=GNOME gnome-control-center"))
-hl.bind(mainMod .. " + CTRL + N", hl.dsp.exec_cmd("hyprmod profile next"))
-hl.bind(mainMod .. " + CTRL + P", hl.dsp.exec_cmd("hyprmod profile previous"))
 
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + V", hl.dsp.exec_cmd("pavucontrol"))
@@ -81,6 +79,11 @@ hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.window.move({ workspace = 6 })
 -- hl.bind(mainMod .. " + mouse_up", hl.dsp.focus({ workspace = "-1" }))
 hl.bind(mainMod .. " + left", hl.dsp.focus({ workspace = "-1" }))
 hl.bind(mainMod .. " + right", hl.dsp.focus({ workspace = "+1" }))
+
+-- -- Hyprexpo: workspace overview (like GNOME Activities / macOS Mission Control)
+-- hl.bind(mainMod .. " + Tab", function()
+-- 	hl.dispatch("hyprexpo:expo", "toggle")
+-- end)
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })

@@ -1,17 +1,20 @@
 {
   "layer": "top",
   "position": "top",
-  "height": 40,
+  "height": 20,
   "spacing": 0,
-  "modules-left": ["hyprland/workspaces", "custom/clock", "pulseaudio", "custom/pavucontrol", "custom/bluetooth", "custom/window"],
-  "modules-center": ["custom/launcher"],
-  "modules-right": [
-    "custom/media",
-    "custom/cpu",
-    "custom/gpu",
-    "memory",
-    "disk",
+  "modules-left": [
+    "hyprland/workspaces",
+    "custom/obs-recording",
+    "custom/clock",
+    "pulseaudio",
+    "custom/pavucontrol",
+    "custom/bluetooth",
+    // "custom/uptime",
+    "custom/window",
   ],
+  "modules-center": ["custom/launcher"],
+  "modules-right": ["custom/media", "custom/cpu", "custom/gpu", "memory"],
 
   "custom/launcher": {
     "format": "󰣇",
@@ -33,7 +36,7 @@
       "3": "3",
       "4": "4",
       "5": "5",
-      "6": "6",
+      "6": "6 ",
       // "default": "",
     },
     "persistent-workspaces": {
@@ -45,7 +48,7 @@
   "custom/window": {
     "exec": "~/.config/waybar/scripts/window.sh",
     "return-type": "json",
-    "interval": 0.2,
+    "interval": 0.5,
     "max-length": 60,
   },
 
@@ -53,38 +56,31 @@
     "exec": "~/.config/waybar/scripts/clock.sh",
     "interval": 30,
     "on-click": "zenity --calendar --title='Calendar'",
-    "tooltip-format": "{:%A, %B %d %Y}",
+    "tooltip-format": "{text}",
   },
 
   "custom/cpu": {
     "exec": "~/.config/waybar/scripts/cpu.sh",
-    "interval": 5,
+    "interval": 60,
     "tooltip": false,
   },
 
   "custom/gpu": {
     "exec": "nvidia-smi --query-gpu=temperature.gpu,utilization.gpu --format=csv,noheader,nounits | awk -F', ' '{printf \"󰢮 %s%%  %s°C\", $2, $1}'",
-    "interval": 10,
+    "interval": 60,
     "tooltip": false,
   },
 
   "memory": {
-    "format": " {used:0.1f}G",
-    "interval": 10,
-    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)",
-  },
-
-  "disk": {
-    "path": "/",
-    "format": " {used:0.1f}G ({percentage}%)",
+    "format": " {used:0.1f}G ",
     "interval": 60,
-    "tooltip-format": "Disk: {used:0.1f}G / {total:0.1f}G ({percentage}%)",
+    "tooltip-format": "RAM: {used:0.1f}G / {total:0.1f}G ({percentage}%)",
   },
 
   "custom/media": {
     "exec": "~/.config/waybar/scripts/media.sh",
     "return-type": "json",
-    "interval": 0,
+    "interval": 1,
     "on-click": "playerctl play-pause",
     "max-length": 90,
     "tooltip": false,
@@ -102,10 +98,24 @@
     "tooltip": false,
   },
 
+  "custom/uptime": {
+    "exec": "~/.config/waybar/scripts/uptime.sh",
+    "return-type": "json",
+    "interval": 30,
+    "tooltip": true,
+  },
+
+  "custom/obs-recording": {
+    "exec": "~/.config/waybar/scripts/obs-recording.py",
+    "return-type": "json",
+    "interval": 1,
+    "tooltip": true,
+  },
+
   "pulseaudio": {
     "format": "{icon} {volume}%",
-    "format-muted": "󰝟",
-    "format-icons": ["", "", ""],
+    "format-muted": " ",
+    "format-icons": ["", "", " "],
     "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
     "on-scroll-up": "swayosd-client --output-volume raise",
     "on-scroll-down": "swayosd-client --output-volume lower",

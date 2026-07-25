@@ -95,4 +95,3 @@ hl.window_rule({
    size = "1100 700",
    move = "50% 50%",
 })
-

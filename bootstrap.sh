@@ -62,7 +62,7 @@ if ! command -v stow &>/dev/null; then
 fi
 
 log "Stowing configuration files..."
-STOW_PKGS=(hypr waybar rofi kitty wezterm fastfetch fish swaync swayosd slurp uwsm gtk qt xsettingsd icons nvidia wallpapers)
+STOW_PKGS=(hypr waybar rofi kitty wezterm fastfetch fish swaync swayosd slurp uwsm gtk qt xsettingsd icons nvidia wallpapers zsh)
 for pkg in "${STOW_PKGS[@]}"; do
   if [[ -d "$pkg" ]]; then
     log "  Stowing: $pkg"
