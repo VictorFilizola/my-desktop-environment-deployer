@@ -66,6 +66,14 @@ for i, key in ipairs(workspaceKeys) do
 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
+-- -- Switch workspaces with mainMod + 1~0 (1-10)
+-- -- Move active window to a workspace with mainMod + SHIFT + 1~0
+-- local workspaceKeyNumbers = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" }
+-- for i, key in ipairs(workspaceKeyNumbers) do
+-- 	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+-- 	hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+-- end
+
 -- Workspace 6 (scratch / overflow)
 hl.bind(mainMod .. " + Backspace", hl.dsp.focus({ workspace = 6 }))
 hl.bind(mainMod .. " + SHIFT + Backspace", hl.dsp.window.move({ workspace = 6 }))

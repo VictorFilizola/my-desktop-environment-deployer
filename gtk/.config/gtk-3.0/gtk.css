@@ -1,0 +1,36 @@
+@import 'colors.css';
+
+/* Zenity calendar — match Waybar */
+window.zenity {
+    background-color: #191919;
+}
+
+window.zenity dialog,
+window.zenity box,
+window.zenity calendar {
+    background-color: #191919;
+    color: #ebdbb2;
+    opacity: 1;
+}
+
+window.zenity calendar.header {
+    background-color: #191919;
+    color: #eb3131;
+}
+
+window.zenity calendar:selected {
+    background-color: #eb3131;
+    color: #ebdbb2;
+}
+
+window.zenity button {
+    background-color: #252525;
+    color: #ebdbb2;
+    border: 1px solid #eb3131;
+    border-radius: 8px;
+}
+
+window.zenity button:hover {
+    background-color: #eb3131;
+    color: #ebdbb2;
+}

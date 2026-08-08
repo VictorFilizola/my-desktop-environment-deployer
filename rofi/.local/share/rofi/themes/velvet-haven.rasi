@@ -1,0 +1,204 @@
+/**
+ * ROFI Color theme: velvet-haven
+ * Adapted from: arthur (Qball / Dave Davenport)
+ * Palette: user's Hyprland system colors
+ * Font:    JetBrainsMono Nerd Font
+ *
+ * accent  = #eb3131  (red accent)
+ * surface = #1e1e1e  (dark background)
+ * muted   = #595959  (subtle gray)
+ * text    = #ebdbb2  (off-white text)
+ */
+
+* {
+    // === User System Palette ===
+    accent:    #eb3131;
+    surface:   #1e1e1e;
+    muted:     #595959;
+    text:      #ebdbb2;
+
+    // === Derived Alpha Variants ===
+    // Kitty background_opacity 0.75 → 75% opaque
+    surface-alpha:   rgba(30, 30, 30, 0.75);
+    accent-alpha:    rgba(235, 49, 49, 0.20);
+    muted-alpha:     rgba(89, 89, 89, 0.30);
+    text-alpha:      rgba(235, 219, 178, 0.10);
+
+    // === Base properties (no intermediate aliases — use palette vars directly) ===
+    foreground:         @text;
+    background-color:   transparent;
+    highlight:          underline #ebdbb2;
+    transparent:        rgba(0, 0, 0, 0);
+
+    // === Font ===
+    font: "JetBrainsMono Nerd Font 12";
+}
+
+// ── Layout ──────────────────────────────────────────────
+
+window {
+    location: center;
+    anchor:   center;
+    transparency: "real";
+    width: 480px;
+    padding: 0px;
+    border:  0px;
+    border-radius: 12px;
+    background-color: @transparent;
+    spacing: 0;
+    children:  [mainbox];
+    orientation: horizontal;
+}
+
+mainbox {
+    spacing: 0;
+    children: [ inputbar, message, listview ];
+}
+
+// ── Message (error/info text) ──────────────────────────
+
+message {
+    border-color: @muted;
+    border:  0px 2px 2px 2px;
+    padding: 5;
+    background-color: @muted-alpha;
+    font: "JetBrainsMono Nerd Font 10";
+    color: @text;
+}
+
+// ── Input bar ──────────────────────────────────────────
+
+inputbar {
+    color: @text;
+    padding: 11px;
+    background-color: @surface-alpha;
+    border: 2px 2px 2px 2px;
+    border-radius: 12px 12px 0px 0px;
+    border-color: @accent;
+    font: "JetBrainsMono Nerd Font 20";
+}
+
+entry, prompt, case-indicator {
+    text-font: inherit;
+    text-color: inherit;
+}
+
+prompt {
+    enabled: false;
+}
+
+// ── List view ──────────────────────────────────────────
+
+listview {
+    padding: 8px;
+    border-radius: 0px 0px 12px 12px;
+    border-color: @muted;
+    border: 0px 2px 2px 2px;
+    background-color: @surface-alpha;
+    dynamic: false;
+    lines: 10;
+}
+
+// ── Elements (list rows) ───────────────────────────────
+
+element {
+    padding: 3px;
+    vertical-align: 0.5;
+    border-radius: 4px;
+    background-color: transparent;
+    color: @text;
+    font: inherit;
+}
+
+element-text {
+    background-color: inherit;
+    text-color: inherit;
+}
+
+// Selected / hovered row — solid red bg, dark text for contrast
+element selected.normal {
+    background-color: #eb3131;
+    text-color: #1e1e1e;
+}
+
+// Active (but not selected) row — red text
+element normal active {
+    text-color: #eb3131;
+}
+
+// Urgent row — red text
+element normal urgent {
+    text-color: #eb3131;
+}
+
+element alternate normal {
+}
+
+element alternate active {
+    text-color: #eb3131;
+}
+
+element alternate urgent {
+    text-color: #eb3131;
+}
+
+// Selected + active — translucent red bg (softer)
+element selected active {
+    background-color: rgba(235, 49, 49, 0.20);
+    text-color: #ebdbb2;
+}
+
+// Selected + urgent — solid red bg
+element selected urgent {
+    background-color: #eb3131;
+    text-color: #1e1e1e;
+}
+
+element normal normal {
+}
+
+// ── Mode switcher (vertical tab bar) ───────────────────
+
+vertb {
+    expand: false;
+    children: [ dummy0, mode-switcher, dummy1 ];
+}
+
+dummy0, dummy1 {
+    expand: true;
+}
+
+mode-switcher {
+    expand: false;
+    orientation: vertical;
+    spacing: 0px;
+    border: 0px 0px 0px 0px;
+}
+
+button {
+    font: "FontAwesome 22";
+    padding: 6px;
+    border: 2px 0px 2px 2px;
+    border-radius: 4px 0px 0px 4px;
+    background-color: @surface-alpha;
+    border-color: @muted;
+    color: @text;
+    horizontal-align: 0.5;
+}
+
+button selected normal {
+    color: #1e1e1e;
+    border: 2px 0px 2px 2px;
+    background-color: rgba(235, 49, 49, 0.20);
+    border-color: #eb3131;
+}
+
+// ── Error message ──────────────────────────────────────
+
+error-message {
+    expand: true;
+    background-color: #eb3131;
+    border-color: #1e1e1e;
+    border: 2px;
+    padding: 1em;
+}

@@ -23,12 +23,15 @@ alias ls="eza -l --icons=always --color=always --group-directories-first"
 alias ll="eza -la --icons=always --color=always --group-directories-first"
 alias make="make -j$(nproc)"
 alias ninja="ninja -j$(nproc)"
-alias n="nvim"
-alias c="clear"
+# alias n="nvim"
+# alias c="clear"
 # alias update="sudo pacman -Syu"
 # alias cleanup="sudo pacman -Rsn $(pacman -Qtdq)"
 alias jctl="journalctl -p 3 -xb"
 alias rip="expac --timefmt='%Y-%m-%d %T' '%l\t%n %v' | sort | tail -200 | nl"
+
+# alias to enter Hermes TUI which resides inside a docker container
+alias hermes="docker exec -it hermes /opt/hermes/.venv/bin/hermes"
 
 # Disable XON/XOFF so Ctrl+S works in Neovim
 stty -ixon

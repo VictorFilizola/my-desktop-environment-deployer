@@ -27,4 +27,12 @@
 
 //@theme "/usr/share/rofi/themes/iggy.rasi"
 
-@theme "/home/vito/.local/share/rofi/themes/squared-material-red.rasi"
+//@theme "/home/vito/.local/share/rofi/themes/squared-material-red.rasi"
+
+//@theme "/usr/share/rofi/themes/Monokai.rasi"
+
+//@theme "/home/vito/.local/share/rofi/themes/velvet-haven.rasi"
+
+//@theme "/home/vito/.local/share/rofi/themes/squared-material-red.rasi"
+
+@theme "/home/vito/.local/share/rofi/themes/velvet-haven.rasi"

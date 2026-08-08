@@ -1,61 +1,104 @@
 {
   "$schema": "https://github.com/fastfetch-cli/fastfetch/raw/master/doc/json_schema.json",
   "logo": {
-    "source": ".config/fastfetch/arch_logo.txt",
-    "color": { "1": "red", "2": "red", "3": "red", "4": "red", "5": "red", "6": "red", "7": "red", "8": "red", "9": "red" },
+    "source": "/home/vito/.config/fastfetch/fili-station_logo.txt",
+    "color": {
+      "1": "#cd3131",
+    },
     "padding": {
       "top": 0,
       "left": 0,
-      "right": 0
-    }
+      "right": 0,
+    },
   },
   "display": {
     "color": {
-      "keys": "red",
-      "title": "red"
-    }
+      "keys": "#cd3131",
+      "title": "#cd3131",
+    },
   },
-	"modules": [
-	    {
-	      "type": "custom",
-	      "format": ""
-	    },
-	    "title",
-	    //"separator",
-	    {
-	      "type": "custom",
-	      "format": "\u001b[31m╭──────────────────────────────────────────────────────╮\u001b[0m"
-	    },
-	    "break",
-	    { "type": "os", "key": "  os" },
-	    { "type": "host", "key": "  host" },
-	    { "type": "kernel", "key": "  kernel" },
-	    { "type": "uptime", "key": "  uptime" },
-	    { "type": "packages", "key": "  packages" },
-	    { "type": "shell", "key": "  shell" },
-	    { "type": "terminal", "key": "  terminal" },
-	    { "type": "display", "key": "  display" },
-	    { "type": "de", "key": "  de" },
-	    //"wm",
-	    //"wmtheme",
-	    //"theme",
-	    //"icons",
-	    //"font",
-	    //"cursor",    
-	    //"terminalfont",
-	    { "type": "cpu", "key": "  cpu" },
-	    { "type": "gpu", "key": "  gpu" },
-	    { "type": "memory", "key": "  memory" },
-	    //"swap",
-	    { "type": "disk", "key": "  disk" },
-	    { "type": "battery", "key": "  battery" },
-	    { "type": "poweradapter", "key": "  poweradapter" },
-	    //"locale",
-	    { "type": "localip", "key": "  localip" },
-	    "break",
-	    {
-	      "type": "custom",
-	      "format": "\u001b[31m╰──────────────────────────────────────────────────────╯\u001b[0m"
-	    }
-  ]
+  "modules": [
+    {
+      "type": "custom",
+      "format": "",
+    },
+    "title",
+    {
+      "type": "custom",
+      "format": "╭─ \u001b[38;2;205;49;49msoftware\u001b[0m ───────────────────────────────────╮",
+    },
+    {
+      "type": "kernel",
+      "key": "  kernel",
+    },
+    {
+      "type": "os",
+      "key": "  os",
+    },
+    {
+      "type": "de",
+      "key": "  de",
+    },
+    {
+      "type": "wm",
+      "key": "  wm",
+    },
+    {
+      "type": "shell",
+      "key": "  shell",
+    },
+    {
+      "type": "terminal",
+      "key": "  terminal",
+      "format": "wezterm",
+    },
+    {
+      "type": "packages",
+      "key": "  packages",
+    },
+    {
+      "type": "uptime",
+      "key": "  uptime",
+    },
+    {
+      "type": "custom",
+      "format": "├─ \u001b[38;2;205;49;49mhardware\u001b[0m ───────────────────────────────────┤",
+    },
+    {
+      "type": "cpu",
+      "key": "  cpu",
+    },
+    {
+      "type": "gpu",
+      "key": "  gpu",
+    },
+    {
+      "type": "memory",
+      "key": "  memory",
+    },
+    {
+      "type": "disk",
+      "key": "  disk",
+    },
+    {
+      "type": "battery",
+      "key": "  battery",
+    },
+    {
+      "type": "poweradapter",
+      "key": "  poweradapter",
+    },
+    {
+      "type": "display",
+      "key": "  display",
+    },
+    {
+      "type": "localip",
+      "key": "  localip",
+    },
+    {
+      "type": "custom",
+      "format": "╰───────────────────────────────────────────────────╯",
+    },
+  ],
 }
