@@ -2,8 +2,8 @@
 set -euo pipefail
 
 # === Hyprland Environment Bootstrap ===
-# Replicates my full Hyprland setup on a fresh Arch machine.
-# Run from the repo root (~/.config/hypr/ or cloned copy).
+# Replicates my full Hyprland setup on a fresh Arch machine
+# Run from the repo root (~/.config/hypr/ or cloned copy)
 
 RED='\033[0;31m'
 GREEN='\033[0;32m'
@@ -14,7 +14,7 @@ log() { echo -e "${GREEN}==>${NC} $*"; }
 warn() { echo -e "${YELLOW}WARN:${NC} $*"; }
 err() { echo -e "${RED}ERROR:${NC} $*"; }
 
-# ── Preflight ──────────────────────────────────────────────
+# === Preflight ===
 if ! command -v pacman &>/dev/null; then
   err "pacman not found. This script is for Arch-based distros only."
   exit 1
@@ -29,7 +29,7 @@ if [[ "$SCRIPT_DIR" == "$HOME/.config/hypr"* ]]; then
   echo "  Consider moving it: mv $SCRIPT_DIR ~/"
 fi
 
-# ── Package Installation ───────────────────────────────────
+# === Package Installation ===
 log "Installing packages from pkglist.txt..."
 if [[ -f pkglist.txt ]]; then
   grep -v '^#' pkglist.txt | grep -v '^$' | sudo pacman -S --needed --noconfirm -
@@ -37,7 +37,7 @@ else
   warn "pkglist.txt not found — skipping package install."
 fi
 
-# Install AUR packages directly from source (no helper needed)
+# === Install AUR packages directly from source (no helper needed) ===
 if [[ -f aurlist.txt ]] && grep -q '^[^#]' aurlist.txt 2>/dev/null; then
   log "Installing AUR packages from source..."
   sudo pacman -S --needed --noconfirm base-devel git
@@ -55,7 +55,7 @@ if [[ -f aurlist.txt ]] && grep -q '^[^#]' aurlist.txt 2>/dev/null; then
   rm -rf "$AUR_TMP"
 fi
 
-# ── Stow Config Files ──────────────────────────────────────
+# === Stow Config Files ===
 if ! command -v stow &>/dev/null; then
   log "Installing stow..."
   sudo pacman -S --needed --noconfirm stow
@@ -77,7 +77,7 @@ for pkg in "${STOW_PKGS[@]}"; do
   fi
 done
 
-# ── Enable User Services ───────────────────────────────────
+# === Enable User Services ======
 log "Enabling user-level systemd services..."
 systemctl --user enable --now pipewire.socket 2>/dev/null || true
 systemctl --user enable --now wireplumber.service 2>/dev/null || true
@@ -88,7 +88,7 @@ if command -v fish &>/dev/null && [[ "$SHELL" != *fish ]]; then
   chsh -s /usr/bin/fish
 fi
 
-# ── Verify Deployment ──────────────────────────────────────
+# Verify Deployment
 CHECK_FILES=(
   "$HOME/.config/hypr/hyprland.lua"
   "$HOME/.config/waybar/config.jsonc"
@@ -108,7 +108,7 @@ for f in "${CHECK_FILES[@]}"; do
   fi
 done
 
-# ── Post-Install ───────────────────────────────────────────
+# === Post-Install ===
 echo ""
 echo -e "${GREEN}════════════════════════════════════════════════════════${NC}"
 if [[ $FAILED -eq 1 ]]; then
